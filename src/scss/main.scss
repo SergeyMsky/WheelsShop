@@ -1,0 +1,159 @@
+////////////////////////////////////////////IMPORT/////////////////////////////////////////////
+@import 'normalize.scss';
+@import 'null.scss';
+@import 'mixin.scss';
+@import 'fontstyle.scss';
+////////////////////////////////////////////IMPORT/////////////////////////////////////////////
+
+/////////////////////////////////////////////COLOR/////////////////////////////////////////////
+$primary-color-light: #ededed;
+$primary-color-dark: #3b3b3b;
+$secondary-color-light: #fff;
+$secondary-color-dark: #1d1d1d;
+$tertiary-color-dark: #1e1e1e;
+$brand-color: #d4e23e;
+/////////////////////////////////////////////COLOR/////////////////////////////////////////////
+
+/////////////////////////////////////////////FONT-FAMILY///////////////////////////////////////
+$font-main: 'Raleway', sans-serif;
+/////////////////////////////////////////////FONT-FAMILY///////////////////////////////////////
+
+/////////////////////////////////////////////FONT-SIZE/////////////////////////////////////////
+$fs-xs: 0.7778rem; // 14
+$fs-xx-sm: 14px;
+$fs-x-sm: 15px;
+$fs-sm: 18px;
+$fs-md: 1.3333rem; // 24
+$fs-x-md: 1.6111rem; // 29
+$fs-xx-md: 1.6667rem; // 30
+$fs-lg: 2.6667rem; // 48
+$fs-xl: 4rem; // 72
+/////////////////////////////////////////////FONT-SIZE/////////////////////////////////////////
+
+/////////////////////////////////////////////MEDIA/////////////////////////////////////////////
+$screen-xs: 360px;
+$screen-x-sm: 400px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+// 1920px// 1680px// 1366px// 1280px// 1024px// 800px// 768px// 600px// 533px// 360px// 320px
+/////////////////////////////////////////////MEDIA/////////////////////////////////////////////
+
+:root {
+   font-size: $fs-sm;
+
+   @include media($screen-xl) {
+      font-size: $fs-x-sm;
+   }
+   @include media($screen-sm) {
+      font-size: $fs-xx-sm;
+   }
+}
+
+body {
+   position: relative;
+   overflow-x: hidden;
+   left: 0;
+
+   font-family: $font-main;
+   color: $primary-color-dark;
+
+   transition: left 0.4s ease-in-out;
+
+   &.-show {
+      left: -180px;
+      overflow: hidden;
+   }
+}
+
+.wrapper {
+   position: relative;
+   @include wrapper(1635px, 50px);
+
+   &--sm {
+      max-width: 1444px;
+   }
+
+   @include media($screen-xl) {
+      padding-left: 30px;
+      padding-right: 30px;
+   }
+   @include media($screen-sm) {
+      padding-left: 20px;
+      padding-right: 20px;
+   }
+}
+
+.title {
+   margin-bottom: 6px;
+
+   font-size: $fs-xx-md;
+   font-weight: 800;
+   text-transform: uppercase;
+   letter-spacing: 3.75px;
+   text-align: center;
+}
+.subtitle {
+   font-weight: 600;
+   letter-spacing: 2.25px;
+   text-align: center;
+}
+
+.menu__link {
+   display: inline-block;
+   overflow: hidden;
+   padding: 0 4px;
+
+   span {
+      position: relative;
+      display: inline-block;
+      transition: transform 0.3s;
+
+      &::before {
+         position: absolute;
+         top: 100%;
+         content: attr(data-hover);
+         font-weight: 800;
+      }
+   }
+   &:hover span {
+      transform: translateY(-100%);
+   }
+}
+
+.link-hover-underline {
+   position: relative;
+   padding-bottom: 2px;
+
+   transition: 0.3s ease;
+
+   &::before {
+      @include pseudo;
+      width: 100%;
+      height: 1px;
+      bottom: 0px;
+      left: 0;
+      background-color: $tertiary-color-dark;
+      transition: 0.3s ease;
+   }
+   &:hover::before {
+      width: 0;
+      left: 50%;
+   }
+
+   &:hover {
+      color: $brand-color;
+   }
+}
+
+////////////////////////////////////////////IMPORT/////////////////////////////////////////////
+@import 'header.scss';
+@import 'welcome.scss';
+@import 'about.scss';
+@import 'statistics.scss';
+@import 'products.scss';
+@import 'team.scss';
+@import 'showcase.scss';
+@import 'footer.scss';
+////////////////////////////////////////////IMPORT/////////////////////////////////////////////

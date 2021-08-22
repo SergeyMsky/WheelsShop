@@ -1,0 +1,40 @@
+.showcase {
+   padding: 95px 0 60px;
+   color: $tertiary-color-dark;
+
+   &__header {
+      margin-bottom: 55px;
+   }
+   &__container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-bottom: 63px;
+
+      @include media($screen-sm) {
+         grid-template-columns: repeat(2, 1fr);
+      }
+   }
+   &__picture {
+      max-width: 385px;
+      max-height: 385px;
+
+      img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+   }
+   &__follow {
+      text-align: center;
+
+      font-size: $fs-md;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: $primary-color-dark;
+
+      a {
+         color: $tertiary-color-dark;
+      }
+   }
+}

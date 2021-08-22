@@ -1,0 +1,20 @@
+.about {
+   &__content {
+      padding: 95px 0 67px;
+   }
+   &__subtitle {
+      margin-bottom: 15px;
+   }
+   &__icon {
+      margin-bottom: 21px;
+
+      img {
+         margin: 0 auto;
+      }
+   }
+   &__text {
+      font-size: $fs-xs;
+      font-weight: 600;
+      letter-spacing: 1.75px;
+   }
+}

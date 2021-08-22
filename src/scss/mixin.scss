@@ -1,0 +1,41 @@
+/////////////////////////////////////////////MIXIN/////////////////////////////////////////////
+@mixin adaptive-value($property, $startSize, $minSize, $maxWidth) {
+   $minWidth: 320;
+   $addSize: $startSize - $minSize;
+   $valueWidth: $maxWidth - $minWidth;
+   #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - #{$minWidth + px}) / #{$valueWidth}));
+}
+
+@mixin centering($height, $width) {
+   #{top}: calc(50% - #{$height + px});
+   #{left}: calc(50% - #{$width + px});
+}
+
+@mixin сentering-xy {
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+}
+
+@mixin pseudo($content: '') {
+   content: $content;
+   display: block;
+   position: absolute;
+}
+
+@mixin wrapper($width, $padding) {
+   width: 100%;
+   max-width: $width;
+   padding-right: $padding;
+   padding-left: $padding;
+   margin-right: auto;
+   margin-left: auto;
+}
+
+@mixin media($media) {
+   @media only screen and (max-width: $media) {
+      @content;
+   }
+}
+/////////////////////////////////////////////MIXIN/////////////////////////////////////////////
